@@ -82,7 +82,9 @@ android {
 
     buildFeatures {
         buildConfig = true
-        compose = true
+        if (!kotlinVersion.startsWith("2")) {
+            compose = true
+        }
     }
     if (!kotlinVersion.startsWith("2")) {
         composeOptions {
