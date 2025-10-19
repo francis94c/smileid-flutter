@@ -69,6 +69,12 @@ android {
             jvmTarget.set(JvmTarget.JVM_17)
             freeCompilerArgs.add("-Xskip-metadata-version-check")
         }
+        doFirst {
+            val filtered = compilerOptions.freeCompilerArgs.get().filterNot {
+                it.startsWith("-P") && it.contains("plugin:androidx.compose.compiler.plugins.kotlin:sourceInformation")
+            }
+            compilerOptions.freeCompilerArgs.set(filtered)
+        }
     }
 
     sourceSets {
