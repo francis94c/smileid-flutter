@@ -82,14 +82,10 @@ android {
 
     buildFeatures {
         buildConfig = true
-        if (!kotlinVersion.startsWith("2")) {
-            compose = true
-        }
+        compose = true
     }
-    if (!kotlinVersion.startsWith("2")) {
-        composeOptions {
-            kotlinCompilerExtensionVersion = kotlinCompilerExtension
-        }
+    composeOptions {
+        kotlinCompilerExtensionVersion = kotlinCompilerExtension
     }
 }
 
